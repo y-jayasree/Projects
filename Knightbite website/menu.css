@@ -1,0 +1,58 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+  overflow-x: hidden;
+}
+.container {
+  display: flex;
+  height: 100vh;
+}
+.menu {
+  background-image: url("./images/m.webp");
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+  justify-content: space-evenly;
+  width: 200vw;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-icon {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.plus-icon {
+  width: 40px;
+  margin: 10px;
+}
+
+h1 {
+  font-size: 40px;
+  color: white;
+  margin: 10px;
+}
+.text{
+  width: 100%;
+  height: 50px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;     
+  background: linear-gradient(to right, #d969a1, #e608d3); 
+  color: white;
+  font-size: 14px;
+  margin-top: 30px;
+}
