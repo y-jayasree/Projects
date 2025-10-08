@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Cart - Bookstore{% endblock %}
+
+{% block content %}
+<h2>Your Cart</h2>
+
+{% if items %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.book.title }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ item.book.price }}</td>
+            <td>${{ item.total_price }}</td>
+            <td>
+                <a href="{% url 'update_cart' item.id 'increment' %}" class="btn btn-sm btn-success">+</a>
+                <a href="{% url 'update_cart' item.id 'decrement' %}" class="btn btn-sm btn-danger">-</a>
+                {% comment %} <a href="{% url 'book_detail' item.book.id %}" class="btn btn-info btn-sm">View Details</a> {% endcomment %}
+                {% comment %} {% if item.book %}
+    <a href="{% url 'book_detail' item.book.id %}" class="btn btn-info btn-sm">View Details</a>
+{% endif %} {% endcomment %}
+
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h4>Total: ${{ total }}</h4>
+<a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+{% comment %} <a href="{% url 'book_detail' book.id %}" class="btn btn-info btn-sm">View Details</a> {% endcomment %}
+
+{% else %}
+<p>You have no items in your cart yet.</p>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+
+{% block title %}Cart - Bookstore{% endblock %}
+
+{% block content %}
+<h2>Your Cart</h2>
+<p>You have no items in your cart yet.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Book 1</td>
+            <td>1</td>
+            <td>$10</td>
+        </tr>
+    </tbody>
+</table>
+<a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+{% endblock %} {% endcomment %}
+
+
+
+

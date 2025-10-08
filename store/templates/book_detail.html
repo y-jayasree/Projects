@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }} - Bookstore{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        {% if book.image %}
+        <img src="{{ book.image.url }}" class="img-fluid" alt="{{ book.title }}">
+        {% endif %}
+    </div>
+    <div class="col-md-6">
+        <h2>{{ book.title }}</h2>
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>Price:</strong> ${{ book.price }}</p>
+        <p><strong>Description:</strong> {{ book.description }}</p>
+        <a href="{% url 'add_to_cart' item.book.id %}" class="btn btn-primary">Add to Cart</a>
+    </div>
+</div>
+{% endblock %}
